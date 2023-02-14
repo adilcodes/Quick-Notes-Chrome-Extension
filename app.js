@@ -7,7 +7,8 @@ notesHeading = document.getElementById("notes-heading"),
 notesContainer = document.getElementById("notes-container"),
 singleNoteEditBtn = document.getElementById("edit-btn"),
 singleNoteDeleteBtn = document.getElementById("delete-btn"),
-clearNotes= document.getElementById("clear-notes");
+clearNotes= document.getElementById("clear-notes"),
+singleNote = document.querySelectorAll(".singleNote");
 
 // Notes Storing Array
 let notes = [];
@@ -35,6 +36,12 @@ let createNote = () => {
             </div>`
         )
     });
+
+    if(notesContainer.innerHTML == ""){
+        return
+    } else{
+        notesHeading.classList.remove("hide");
+    }
 }
 let collectAndShowData = () => {
     notes.push(notesInput.value);
@@ -58,6 +65,12 @@ let deleteNote = (obj) => {
     notes.splice(obj.parentElement.parentElement.id,1);
     localStorage.setItem("notes", JSON.stringify(notes));   // Storing in Local Storage
 
+    if(notesContainer.innerHTML == ""){
+        return
+    } else{
+        notesHeading.classList.add("hide");
+    }
+
 }
 
 let editNote = (obj) => {
@@ -77,6 +90,8 @@ clearNotes.addEventListener("click", () => {
     notesContainer.innerHTML = "";
     notes.splice(0, notes.length)
     localStorage.setItem("notes", JSON.stringify(notes));   // Storing in Local Storage
+    notesHeading.classList.add("hide")
+
 });
 
 (() => {
