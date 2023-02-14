@@ -7,8 +7,7 @@ notesHeading = document.getElementById("notes-heading"),
 notesContainer = document.getElementById("notes-container"),
 singleNoteEditBtn = document.getElementById("edit-btn"),
 singleNoteDeleteBtn = document.getElementById("delete-btn"),
-clearNotes= document.getElementById("clear-notes"),
-singleNote = document.querySelectorAll(".singleNote");
+clearNotes= document.getElementById("clear-notes");
 
 // Notes Storing Array
 let notes = [];
@@ -16,6 +15,14 @@ let notes = [];
 // Making Functions
 let inputClear = () => {
     notesInput.value = "";
+}
+
+let copyNote = (text) => {
+    navigator.clipboard.writeText(text.innerHTML);
+    let temp = text.innerHTML;
+    text.innerHTML = "Copied"
+    setTimeout(() => {text.innerHTML = temp}, 1000);
+    
 }
 
 let createNote = () => {
@@ -42,6 +49,12 @@ let createNote = () => {
     } else{
         notesHeading.classList.remove("hide");
     }
+
+    document.querySelectorAll(".singleNote").forEach(currentNote => {
+        currentNote.addEventListener("click", (e) => {
+            copyNote(e.currentTarget.firstElementChild);
+        })
+    })
 }
 let collectAndShowData = () => {
     notes.push(notesInput.value);
@@ -94,7 +107,13 @@ clearNotes.addEventListener("click", () => {
 
 });
 
-(() => {
+
+// Retrieving Data from Local Storage at start
+
+let retrieveData = () => {
     notes = JSON.parse(localStorage.getItem("notes")) || [];
     createNote();
-})()
+}
+
+retrieveData();
+

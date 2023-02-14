@@ -74,15 +74,8 @@ body{
     min-height: 61px;
     font-size: 15px;
     position: relative;
-}
-.content .singleNote:nth-child(1){
-    background-color: #f3000021;
-}
-.content .singleNote:nth-child(2){
-    background-color: #f3e70021;
-}
-.content .singleNote:nth-child(3){
-    background-color: #008af321;
+    background-color: red;
+    cursor: pointer;
 }
 .controls{
     position: absolute;
