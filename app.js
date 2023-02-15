@@ -36,10 +36,10 @@ let createNote = () => {
             <div class="singleNote" id="${Elementindex}">
                 <p>${singleNote}</p>
                 <div class="controls">
-                    <div class="edit" id="edit-btn" onclick="editNote(this)">
+                    <div class="edit" id="edit-btn">
                         <i class="fa-solid fa-pen-to-square"></i>
                     </div>
-                    <div class="delete" id="delete-btn" onclick="deleteNote(this)">
+                    <div class="delete" id="delete-btn">
                         <i class="fa-solid fa-trash"></i>
                     </div>
                 </div>
@@ -58,6 +58,20 @@ let createNote = () => {
     document.querySelectorAll(".singleNote").forEach(currentNote => {
         currentNote.addEventListener("click", (e) => {
             copyNote(e.currentTarget.firstElementChild);
+        });
+    });
+
+    // Adding Event Handler to edit button
+    document.querySelectorAll("#edit-btn").forEach(currentBtn => {
+        currentBtn.addEventListener("click", (e) => {
+            editNote(e.currentTarget);
+        });
+    });
+
+    // Adding Event Handler to delete button
+    document.querySelectorAll("#delete-btn").forEach(currentBtn => {
+        currentBtn.addEventListener("click", (e) => {
+            deleteNote(e.currentTarget);
         });
     });
 
