@@ -28,7 +28,7 @@
 
 /* Styling Add Notes Button */
 .container #add-note{
-    border: 1px solid #1e1e1e3d;
+    border: 1px solid #00000089;
     background-color: #fefefe;
     width: 100%;
     padding: 15px;
@@ -39,9 +39,8 @@
     transition: 0.2s ease-in-out;
 }
 .container #add-note:hover{
-    background-color: #1e1e1eb5;
-    border-color: #fefefe;
-    color: #fff;
+    background-color: #1f1f1f;
+    color: #fefefe;
 }
 /* Styling Notes/Content Area */
 .allNotes .heading{
@@ -50,13 +49,15 @@
     justify-content: space-between;
     font-size: 15px;
     margin-bottom: 7px;
+    color: #000;
 }
 .heading #clear-notes{
     cursor: pointer;
     transition: 0.2s ease-in-out;
+    color: #000;
 }
 .heading #clear-notes:hover{
-    color: #1e1e1eb5;
+    color: #1f1f1f68;
 }
 .content .singleNote{
     width: 100%;
@@ -68,6 +69,8 @@
     font-size: 15px;
     position: relative;
     cursor: pointer;
+    background-color: #f8c5953d;
+    overflow: hidden;
 }
 .controls{
     position: absolute;
@@ -77,6 +80,12 @@
     width: 30px;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
+    transform: translateX(100%);
+    transition: 0.3s ease-in-out;
+}
+
+.singleNote:hover .controls{
+    transform: translateX(0%);
 }
 .controls .edit,
 .controls .delete{
@@ -87,6 +96,7 @@
     align-items: center;
     cursor: pointer;
     font-size: 14px;
+    color: #1f1f1f;
 }
 .hide{
     display: none !important;

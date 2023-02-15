@@ -27,23 +27,13 @@ let copyNote = (text) => {
     
 }
 
- // Generating a Random Background color
- let generateBgColor = () => {
-    symbols = "0123456789ABCDEF";
-    color = "#";
-
-    for(let i = 0; i < 6; i++){
-        color = color + symbols[Math.floor(Math.random() * 16)];
-    }
- };
-
 let createNote = () => {
     notesContainer.innerHTML = "";
 
     notes.map((singleNote, Elementindex) => {
         return(
             notesContainer.innerHTML += `
-            <div class="singleNote" id="${Elementindex}" style="background-color: ${generateBgColor(), color}5d;">
+            <div class="singleNote" id="${Elementindex}">
                 <p>${singleNote}</p>
                 <div class="controls">
                     <div class="edit" id="edit-btn" onclick="editNote(this)">
