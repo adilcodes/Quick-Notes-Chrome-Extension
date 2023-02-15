@@ -1,0 +1,12 @@
+{
+    "manifest_version" : 3,
+    "name" : "Quick Notes",
+    "description" : "A simple notes taking Chrome Extension",
+    "version" : "1.0",
+    "action": {
+        "default_popup" : "index.html"
+    },
+    "icons" : {
+        "32" : "icons/icon32.jpg"
+    }
+}
