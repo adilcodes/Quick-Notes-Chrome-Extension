@@ -74,7 +74,6 @@ body{
     min-height: 61px;
     font-size: 15px;
     position: relative;
-    background-color: red;
     cursor: pointer;
 }
 .controls{
@@ -96,7 +95,6 @@ body{
     cursor: pointer;
     font-size: 14px;
 }
-
 .hide{
     display: none !important;
 }

@@ -9,6 +9,8 @@ singleNoteEditBtn = document.getElementById("edit-btn"),
 singleNoteDeleteBtn = document.getElementById("delete-btn"),
 clearNotes= document.getElementById("clear-notes");
 
+let symbols, color;
+
 // Notes Storing Array
 let notes = [];
 
@@ -25,12 +27,23 @@ let copyNote = (text) => {
     
 }
 
+ // Generating a Random Background color
+ let generateBgColor = () => {
+    symbols = "0123456789ABCDEF";
+    color = "#";
+
+    for(let i = 0; i < 6; i++){
+        color = color + symbols[Math.floor(Math.random() * 16)];
+    }
+ };
+
 let createNote = () => {
     notesContainer.innerHTML = "";
+
     notes.map((singleNote, Elementindex) => {
         return(
             notesContainer.innerHTML += `
-            <div class="singleNote" id="${Elementindex}">
+            <div class="singleNote" id="${Elementindex}" style="background-color: ${generateBgColor(), color}5d;">
                 <p>${singleNote}</p>
                 <div class="controls">
                     <div class="edit" id="edit-btn" onclick="editNote(this)">
@@ -50,11 +63,14 @@ let createNote = () => {
         notesHeading.classList.remove("hide");
     }
 
+    
+    // Getting the note content to copy it to clipboard
     document.querySelectorAll(".singleNote").forEach(currentNote => {
         currentNote.addEventListener("click", (e) => {
             copyNote(e.currentTarget.firstElementChild);
-        })
-    })
+        });
+    });
+
 }
 let collectAndShowData = () => {
     notes.push(notesInput.value);
