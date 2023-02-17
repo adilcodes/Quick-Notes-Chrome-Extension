@@ -98,12 +98,11 @@ let deleteNote = (obj) => {
     notes.splice(obj.parentElement.parentElement.id,1);
     localStorage.setItem("notes", JSON.stringify(notes));   // Storing in Local Storage
 
-    if(notesContainer.innerHTML == ""){
-        return
-    } else{
+    if(notesContainer.children.length == 0){
         notesHeading.classList.add("hide");
+    } else {
+        return;
     }
-
 }
 
 let editNote = (obj) => {
